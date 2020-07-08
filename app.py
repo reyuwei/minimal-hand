@@ -12,7 +12,7 @@ from kinematics import mpii_to_mano
 from utils import OneEuroFilter, imresize
 from wrappers import ModelPipeline
 from utils import *
-
+import sys
 
 def live_application(capture):
   """
@@ -119,4 +119,5 @@ def live_application(capture):
 
 
 if __name__ == '__main__':
-  live_application(OpenCVCapture())
+  videoname = sys.argv[1] if len(sys.argv) > 1 else None
+  live_application(OpenCVCapture(videoname))

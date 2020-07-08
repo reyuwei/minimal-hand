@@ -6,11 +6,14 @@ class OpenCVCapture:
   """
   OpenCV wrapper to read from webcam.
   """
-  def __init__(self):
+  def __init__(self, filename=None):
     """
     Init.
     """
-    self.cap = cv2.VideoCapture(0)
+    if filename:
+      self.cap = cv2.VideoCapture(filename)
+    else:
+      self.cap = cv2.VideoCapture(0) # realtime
 
   def read(self):
     """
